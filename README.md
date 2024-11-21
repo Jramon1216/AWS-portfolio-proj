@@ -9,15 +9,30 @@ A group project for the Per Scholas AWS re/Start portfolio project
 
         aws-portfolio-proj/
         │
-        ├── frontend/(WILL BE MADE USING REACT)# Frontend hosting files
-        │   ├── views/
-        │   │    ├── userInput.js              # Page for user to input their info for a QR code           
-        │   │    └──  displayUser.js           # Page to display info when QR is scanned
-        │   ├── styles.css                     # Stylesheets for the app
-        │   │    ├── userInput.scss
-        │   │    └──  displayUser.scss
-        │   ├── api.js                         # JavaScript for API interactions
-        │   └── s3-deploy.sh                   # Optional: Script to deploy frontend to S3
+        ├── /frontend
+        │   ├── /public
+        │   │   ├── index.html              # HTML template for React
+        │   │   ├── manifest.json           # Metadata for the web app
+        │   │   └── favicon.ico             # App icon
+        │   │
+        │   ├── /src
+        │   │   ├── /components
+        │   │   │   ├── UserInputForm.jsx   # React component for user input form
+        │   │   │   ├── QRCodeDisplay.jsx  # React component to display QR code
+        │   │   │   └── Navbar.jsx         # Optional navigation bar component
+        │   │   │
+        │   │   ├── /pages
+        │   │   │   ├── HomePage.jsx       # Main page containing the UserInputForm
+        │   │   │   ├── ProfilePage.jsx    # Profile page to show user data and QR code
+        │   │   │   └── NotFoundPage.jsx   # 404 fallback page
+        │   │   │
+        │   │   ├── App.js                 # Root component of the React app
+        │   │   ├── index.js               # Entry point for React app
+        │   │   └── App.css                # Global styles for the app
+        │   │
+        │   ├── package.json               # Dependencies and project metadata
+        │   ├── package-lock.json          # Lockfile for dependencies
+        │   └── README.md                  # Documentation for the frontend
         │
         ├── backend/                           # Backend Lambda function code
         │   ├── processUser/                   
@@ -31,14 +46,14 @@ A group project for the Per Scholas AWS re/Start portfolio project
         │   ├── table_config.json              # Configuration for the DynamoDB table
         │   └── dynamo_helper.py               # Helper functions for DynamoDB operations
         │
-        ├── s3/(OPTIONAL)                      # QR code S3 storage-related files
+        ├── s3/                                # QR code S3 storage-related files
         │   ├── qr_bucket_policy.json          # Optional: S3 bucket policy for QR codes
         │   ├── upload_test_qr.py              # Script for testing S3 uploads
         │   └── qr_code_samples/               # Sample QR codes for local testing
         │       └── example_qr.png
         │
         ├── infrastructure/                    # Infrastructure as Code (IaC) for project deployment
-        │   └── template.yaml                  # AWS SAM 
+        │   └── template.yaml                  # CloudFormation Template 
         │
         ├── .gitignore                         # Git ignore file
         └── README.md                          # Main project overview
