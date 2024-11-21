@@ -43,11 +43,6 @@ A group project for the Per Scholas AWS re/Start portfolio project
         │   │   └── utils.py
         │   └──  requirements.txt           # Python dependencies for Lambda
         │
-        ├── s3/                                # QR code S3 storage-related files
-        │   ├── qr_bucket_policy.json          # Optional: S3 bucket policy for QR codes
-        │   ├── upload_test_qr.py              # Script for testing S3 uploads
-        │   └── qr_code_samples/               # Sample QR codes for local testing
-        │       └── example_qr.png
         │
         ├── infrastructure/                    # Infrastructure as Code (IaC) for project deployment
         │   └── template.yaml                  # CloudFormation Template 
