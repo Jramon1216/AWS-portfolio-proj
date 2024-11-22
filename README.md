@@ -24,7 +24,7 @@ A group project for the Per Scholas AWS re/Start portfolio project
         │   │   ├── /pages
         │   │   │   ├── HomePage.jsx       # Main page containing the UserInputForm
         │   │   │   ├── ProfilePage.jsx    # Profile page to show user data and QR code
-        │   │   │   └── NotFoundPage.jsx   # 404 fallback page
+        │   │   │   └── NotFoundPage.jsx   # 404 fallback page (OPTIONAL)
         │   │   │
         │   │   ├── App.js                 # Root component of the React app
         │   │   ├── index.js               # Entry point for React app
@@ -203,3 +203,40 @@ Goal: Set up monitoring for the application and send notifications when new user
 
 
     Use CloudWatch Logs to troubleshoot any issues in Lambda execution or API Gateway errors.
+
+
+------------
+
+# Project Setup
+## Install General Dependencies
+- Git: Version control system. [Download Git](https://git-scm.com/downloads "Download Git")
+- Node.js and npm: **Required for the frontend React app.** [Download Node.js](https://nodejs.org/en/download/prebuilt-installer/current "Download Node.js")
+- Python (3.8 or later): **Required for backend Lambda functions.** [Download Python](https://www.python.org/downloads/ "Download Python")
+- AWS CLI: Command-line interface to interact with AWS. [Download AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html "Download AWS CLI")
+
+##Clone the repository
+1.Open a terminal and navigate to your desired catagory
+	git clone <repository url>
+2.Navigate into the project directory
+	cd <project-repo>
+
+## Frontend Setup
+1.Navigate to frontend
+	
+	cd frontend
+2.Install dependencies
+
+	npm install
+3.Start React development server
+
+	npm start
+## Backend Setup
+1.Setup Python Virtual Environment: Navigate to the `/backend`  directory:
+
+	cd backend
+	python -m venv venv
+	venv\Scripts\activate   # for Windows
+	source venv/bin/activate # for macOS
+2.Install Dependencies
+	
+	pip install -r requirments.txt
