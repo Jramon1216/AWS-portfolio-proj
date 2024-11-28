@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "AmazonEmber";
+  src: url(../assets/fonts/AmazonEmber_Rg.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#form-container {
+  font-family: "AmazonEmber";
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: solid black;
+  border-radius: 15px;
+  /* padding: 50px; */
+}
+
+#header-div {
+  padding: 0px;
+  background: linear-gradient();
+  border-bottom: solid grey;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 153, 0, 1) 100%
+  );
+}
+
+#form-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  text-decoration: none;
+}
+
+input {
+  font-family: "AmazonEmber";
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-size: 20px;
+}
+
+button {
+  font-family: "AmazonEmber";
+  background-color: lightgray;
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 75px;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  color: black;
+}
+
+button:hover {
+  background-color: #0d71af;
+  color: #fff;
+}
+
+button:disabled {
+  transition: none;
+  color: grey;
+  background-color: #fff;
+  cursor: default;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+}
