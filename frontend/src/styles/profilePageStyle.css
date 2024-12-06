@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "AmazonEmber";
+  src: url(../assets/fonts/AmazonEmber_Rg.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+#profile {
+  background-color: #fff;
+  border: solid 5px black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  font-family: "Amazon Ember", "Calibri";
+  font-size: 24px;
+}
+
+#left {
+  flex: 0;
+  margin: 120px;
+
+  img {
+    height: 380px;
+    width: 351px;
+    padding-bottom: 10px;
+    border-bottom: solid 2px grey;
+  }
+
+}
+
+#right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 120px;
+  flex-direction: column;
+  justify-content: center;
+  
+}

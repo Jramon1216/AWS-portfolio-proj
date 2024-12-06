@@ -38,7 +38,7 @@ export default function UserInputForm() {
   return (
     <div id="form-container">
       <div id="header-div">
-        <h1 >AWS Citizen Registration</h1>
+        <h1> AWS Citizen Registration</h1>
       </div>
       <div id="form-div">
         <form name="citizen-form" onSubmit={handleSubmit}>
