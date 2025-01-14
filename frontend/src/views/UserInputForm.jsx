@@ -3,7 +3,6 @@ import validator from "validator";
 import "../styles/userInputFormStyle.css";
 
 // TODO: API Call - Submition of user information and Display of assigned QR code after submission
-// TODO: Design the page
 
 export default function UserInputForm() {
   const [formData, setFormData] = useState({
@@ -23,16 +22,37 @@ export default function UserInputForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  async function registerUser(data){
+    try{
+        fetch("AWS ENDPOINT", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data) 
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error in registerUser fetch promise: ', error))
+    } catch (e){
+      console.error('Error registering user', e);
+    }
+  }
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const email = document.getElementById("email");
     if (!validator.isEmail(email.value)) {
       console.error("Not a valid email");
       setErrorMsg("Email is invalid");
-    } else {
-      resetInputs();
-      console.log("Form Submitted: ", formData);
+      return
     }
+
+    setErrorMsg('');
+    console.log("Form Submitted: ", formData);
+
+    await registerUser(formData);
+    resetInputs()
   };
 
   return (
