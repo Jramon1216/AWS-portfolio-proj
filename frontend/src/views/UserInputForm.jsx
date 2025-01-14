@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import validator from "validator";
 import "../styles/userInputFormStyle.css";
-
-// TODO: API Call - Submition of user information and Display of assigned QR code after submission
+import axios from "axios";
 
 export default function UserInputForm() {
   const [formData, setFormData] = useState({
@@ -22,20 +21,19 @@ export default function UserInputForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  async function registerUser(data){
-    try{
-        fetch("AWS ENDPOINT", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data) 
+  async function registerUser(data) {
+    try {
+      axios
+        .post("https://c1rbau5u35.execute-api.us-west-2.amazonaws.com/prod", {
+          data,
         })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error in registerUser fetch promise: ', error))
-    } catch (e){
-      console.error('Error registering user', e);
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) =>
+          console.error("Error in registerUser fetch promise: ", error)
+        );
+    } catch (e) {
+      console.error("Error registering user", e);
     }
   }
 
@@ -45,14 +43,14 @@ export default function UserInputForm() {
     if (!validator.isEmail(email.value)) {
       console.error("Not a valid email");
       setErrorMsg("Email is invalid");
-      return
+      return;
     }
 
-    setErrorMsg('');
+    setErrorMsg("");
     console.log("Form Submitted: ", formData);
 
     await registerUser(formData);
-    resetInputs()
+    resetInputs();
   };
 
   return (
@@ -68,14 +66,16 @@ export default function UserInputForm() {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-          /><br/>
+          />
+          <br />
           <input
             type="text"
             placeholder="Last Name"
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-          /><br/>
+          />
+          <br />
           <input
             type="text"
             placeholder="Email"
@@ -83,7 +83,8 @@ export default function UserInputForm() {
             id="email"
             value={formData.email}
             onChange={handleChange}
-          /><br/>
+          />
+          <br />
           <button
             type="submit"
             disabled={
