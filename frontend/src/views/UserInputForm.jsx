@@ -23,17 +23,13 @@ export default function UserInputForm() {
 
   async function registerUser(data) {
     try {
-      axios
-        .post("https://c1rbau5u35.execute-api.us-west-2.amazonaws.com/prod", {
-          data,
-        })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) =>
-          console.error("Error in registerUser fetch promise: ", error)
-        );
+      const response = await axios.post(
+        "https://c1rbau5u35.execute-api.us-west-2.amazonaws.com/prod",
+        data
+      );
+      console.log("Response data", response.data);
     } catch (e) {
-      console.error("Error registering user", e);
+      console.error("Error registering user: ", e);
     }
   }
 
