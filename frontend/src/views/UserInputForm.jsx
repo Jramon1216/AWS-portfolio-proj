@@ -23,10 +23,12 @@ export default function UserInputForm() {
 
   async function registerUser(data) {
     try {
-      const response = await axios.post(
-        "https://c1rbau5u35.execute-api.us-west-2.amazonaws.com/prod",
-        data
-      );
+      const response = await axios
+        .post(
+          "https://8h5qggse6g.execute-api.us-east-1.amazonaws.com/prod/register",
+          data,
+          { headers: { "Content-Type": "application/json" } }
+        )
       console.log("Response data", response.data);
     } catch (e) {
       console.error("Error registering user: ", e);

@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate replace to="/user-input-form" />} />
           <Route path="/user-input-form" element={< UserInputForm />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile-page/getUser" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </>
