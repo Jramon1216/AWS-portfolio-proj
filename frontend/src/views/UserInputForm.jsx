@@ -11,6 +11,8 @@ export default function UserInputForm() {
   });
 
   const [errorMsg, setErrorMsg] = useState("");
+  const apiUrlRegister = process.env.REACT_APP_API_GATEWAY_URL_REGISTER;
+
 
   const resetInputs = () => {
     setFormData({ firstName: "", lastName: "", email: "" });
@@ -25,7 +27,7 @@ export default function UserInputForm() {
     try {
       const response = await axios
         .post(
-          "https://8h5qggse6g.execute-api.us-east-1.amazonaws.com/prod/register",
+          {apiUrlRegister},
           data,
           { headers: { "Content-Type": "application/json" } }
         )

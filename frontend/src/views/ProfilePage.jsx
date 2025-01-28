@@ -8,12 +8,13 @@ export default function ProfilePage() {
   const [searchParams] = useSearchParams();
   const [userData, setUserData] = useState(null);
   const userID = searchParams.get("userID");
+  const apiUrlGetUser = process.env.REACT_APP_API_GATEWAY_URL_GETUSER; 
 
   useEffect(() => {
     if (userID) {
       axios
         .get(
-          `https://8h5qggse6g.execute-api.us-east-1.amazonaws.com/prod/getUser?userID=${userID}`
+          {apiUrlGetUser}
         )
         .then((response) => setUserData(response.data))
         .catch(error=> console.error("Error fetching user data: ", error));
