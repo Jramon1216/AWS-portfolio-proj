@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import validator from "validator";
 import "../styles/userInputFormStyle.css";
 import axios from "axios";
+import { ErrorContext } from "../context/ErrorContext";
 
 export default function UserInputForm() {
+  const { showError } = useContext(ErrorContext);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -34,6 +37,7 @@ export default function UserInputForm() {
       console.log("Response data", response.data);
     } catch (e) {
       console.error("Error registering user: ", e);
+      showError('Error registering user: ', e)
     }
   }
 
