@@ -97,7 +97,6 @@ export default function UserInputForm() {
           </button>
         </form>
       </div>
-      {errorMsg && <div>Error: {errorMsg}</div>}
     </div>
   );
 }
