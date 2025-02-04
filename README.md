@@ -3,11 +3,11 @@ This project is a web application that allows users to generate unique QR codes 
 
 ## Features
 
--    QR Code Generation: Unique QR codes are generated for each user, containing a user ID that links to their profile data.
+-    QR Code Generation: Unique QR codes are generated for each user, which contains a user ID that links to their profile data.
 
 -    QR Code Scanning: Users can scan the QR code to retrieve the corresponding user data from the backend API.
 
--    Dynamic User Profile Page: After scanning the QR code, users are redirected to a profile page displaying their personal details, such as first name, last name, and email address.
+-    Dynamic User Profile Page: After scanning the QR code, users are redirected to a profile page displaying their details, such as first name, last name, and email address.
 
 -    Frontend: Built with React for a seamless and responsive user interface.
 
@@ -32,5 +32,7 @@ This project is a web application that allows users to generate unique QR codes 
 6. Support for different backend responses
 
 ## Project Infrastructure
-![Alt text](./project-infra-graph.png)
-
+<div style="text-align: center;">
+  <img src="./project-infra-graph.png" alt="Project infrastructure graph"/>
+  <p>Made with figma</p>
+</div>
