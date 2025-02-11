@@ -17,14 +17,14 @@ This project is a web application that allows users to generate unique QR codes 
 
 ## Tech Stack
 
--    Frontend: React, React Router
+-    Frontend: React, React Router, React Context
 
--    Backend: AWS Lambda, DynamoDB, AWS API Gateway
+-    Backend: Python
 
 -    Hosting: AWS (Lambda, DynamoDB, API Gateway, S3)
 
 ## Features to be added
-1. Error page on 404 response 
+1. Error page on 404 response when an old QR code is scanned
 2. QR Code to render on registration
 3. Accessibility 
 4. Edit user info
