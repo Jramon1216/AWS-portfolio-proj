@@ -1,4 +1,4 @@
-import React, { createContext,  useState } from "react";
+import React, { createContext,  useState, useEffect } from "react";
 
 export const ErrorContext = createContext();
 
@@ -9,12 +9,18 @@ export const ErrorProvider = ({children}) => {
     const showError = (message = null, code = null) => {
       setErrorCode(code);
       setErrorMsg(message);
+
+      setTimeout(()=> {
+          hideError();
+      }, 5000);
+
     };
 
     const hideError = () => {
         setErrorCode(null);
         setErrorMsg(null);
     } 
+
 
     return (
         <ErrorContext.Provider value={{ errorCode, errorMsg, showError, hideError}}>
