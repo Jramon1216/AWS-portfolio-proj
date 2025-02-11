@@ -12,11 +12,12 @@
     background-color: #E45757;
     display: flex;
     flex-direction: column;
+    font-family: "AmazonEmber";
 }
 
 #error-header {
     background-color: #BA2727;
-    border-bottom: solid black;
+    border-bottom: solid black 2px;
     margin: 0;
     border-radius: 12px 12px 0 0;
 }
