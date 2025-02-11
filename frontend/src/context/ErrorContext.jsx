@@ -1,20 +1,23 @@
-import React, { createContext, useContext , useState } from "react";
+import React, { createContext,  useState } from "react";
 
 export const ErrorContext = createContext();
 
 export const ErrorProvider = ({children}) => {
-    const [errorContent, setErrorContent] = useState(null);
+    const [errorCode, setErrorCode] = useState(null);
+    const [errorMsg, setErrorMsg] = useState(null);
 
-    const showError = (content) => {
-        setErrorContent(content);
+    const showError = (message = null, code = null) => {
+      setErrorCode(code);
+      setErrorMsg(message);
     };
 
     const hideError = () => {
-        setErrorContent(null);
+        setErrorCode(null);
+        setErrorMsg(null);
     } 
 
     return (
-        <ErrorContext.Provider value={{errorContent, showError, hideError}}>
+        <ErrorContext.Provider value={{ errorCode, errorMsg, showError, hideError}}>
             {children}
         </ErrorContext.Provider>
     )

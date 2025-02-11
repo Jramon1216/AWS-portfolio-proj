@@ -1,11 +1,23 @@
-import React from "react";
-import "../styles/errorComponentStyle.css"
+import React, { useContext } from "react";
+import "../styles/errorComponentStyle.css";
+import { ErrorContext } from "../context/ErrorContext";
 
-export default function ErrorComponent(error) {
-    return (
-      <div id="error-div">
-          <h3 id="error-header">Error - 404</h3>
-          <p id="error-explination" style={{"margin-top": "2px"}}>Error registering user</p>
-      </div>
-    );
+export default function ErrorComponent() {
+  const { errorCode, errorMsg, hideError } =
+    useContext(ErrorContext);
+
+  if (!errorMsg) return null;
+
+  return (
+    <div id="error-div">
+      {errorCode ? (
+        <h3 id="error-header">Error: {errorCode} </h3>
+      ) : (
+        <h3 id="error-header">Error</h3>
+      )}
+      <p id="error-explination" style={{ marginTop: "5px" }}>
+        {errorMsg}
+      </p>
+    </div>
+  );
 }

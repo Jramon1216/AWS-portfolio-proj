@@ -14,8 +14,8 @@ export default function UserInputForm() {
   });
 
   const [errorMsg, setErrorMsg] = useState("");
-  const apiUrlRegister = process.env.REACT_APP_API_GATEWAY_URL_REGISTER;
-
+  // const apiUrlRegister = process.env.REACT_APP_API_GATEWAY_URL_REGISTER;
+  const apiUrlRegister = "dummmy";
 
   const resetInputs = () => {
     setFormData({ firstName: "", lastName: "", email: "" });
@@ -28,16 +28,13 @@ export default function UserInputForm() {
 
   async function registerUser(data) {
     try {
-      const response = await axios
-        .post(
-          {apiUrlRegister},
-          data,
-          { headers: { "Content-Type": "application/json" } }
-        )
+      const response = await axios.post({ apiUrlRegister }, data, {
+        headers: { "Content-Type": "application/json" },
+      });
       console.log("Response data", response.data);
     } catch (e) {
       console.error("Error registering user: ", e);
-      showError('Error registering user: ', e)
+      showError("Error registering user, please try again later ", e.response.status);
     }
   }
 
@@ -45,12 +42,11 @@ export default function UserInputForm() {
     event.preventDefault();
     const email = document.getElementById("email");
     if (!validator.isEmail(email.value)) {
-      console.error("Not a valid email");
-      setErrorMsg("Email is invalid");
+      console.error(`${email} is not a valid email`);
+      showError("Email is invalid, please enter a valid email");
       return;
     }
 
-    setErrorMsg("");
     console.log("Form Submitted: ", formData);
 
     await registerUser(formData);
