@@ -1,7 +1,7 @@
 import json
 import uuid
 import boto3
-import qrcode
+import qrcode # imported via lambda layer
 from io import BytesIO
 from dotenv import load_dotenv
 import os
@@ -37,8 +37,9 @@ def lambda_handler(event, context):
             box_size=10,
             border=5
         )
+        
         api_gateway_url = os.getenv("API_GATEWAY_URL_GETUSER")
-        print(api_gateway_url)
+        print(api_gateway_url) # print statement for testing 
         qr.add_data(api_gateway_url)
         qr.make(fit=True)
         img = qr.make_image(fill='black', back_color='white')
@@ -47,6 +48,7 @@ def lambda_handler(event, context):
         img.save(buffer, 'PNG')
         buffer.seek(0)
 
+        # Store created QR code in the S3 bucket for frontend retrieval 
         s3.put_object(
             Bucket=os.getenv("S3_BUCKET_NAME"),
             Key=f'qr_codes/{user_id}.png',
@@ -58,7 +60,8 @@ def lambda_handler(event, context):
             'statusCode': 200,
             'body': json.dumps('Item added and QR code generated')
         }
-    except Exception as e:
+    
+    except Exception as e: # handle exception in case the whole thing goes boom
         return {
             'statusCode': 500,
             'body':json.dumps(f'Error: {str(e)}')

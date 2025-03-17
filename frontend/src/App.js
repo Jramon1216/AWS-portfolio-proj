@@ -6,7 +6,8 @@ import UserInputPage from './views/UserInputPage';
 import ProfilePage from './views/ProfilePage';
 
 
-function App() {
+// React router used to handle user navigation
+function App() { 
   return (
     <>
       <BrowserRouter>

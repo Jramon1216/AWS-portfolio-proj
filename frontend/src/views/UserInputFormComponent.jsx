@@ -14,8 +14,7 @@ export default function UserInputForm() {
   });
 
   const [errorMsg, setErrorMsg] = useState("");
-  // const apiUrlRegister = process.env.REACT_APP_API_GATEWAY_URL_REGISTER;
-  const apiUrlRegister = "dummmy";
+  const apiUrlRegister = process.env.REACT_APP_API_GATEWAY_URL_REGISTER;
 
   const resetInputs = () => {
     setFormData({ firstName: "", lastName: "", email: "" });
